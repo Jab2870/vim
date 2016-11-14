@@ -4,9 +4,12 @@ set nocompatible
 " set syntax highlighting
 syntax on
 
-call pathogen#runtime_append_all_bundles()
+" start pathogen
+call pathogen#infect()
 call pathogen#helptags()
 
+" set relative ruler with current line as real line number
+set relativenumber
 set number
 
 " set tabwidth
