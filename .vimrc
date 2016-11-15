@@ -20,3 +20,11 @@ set tabstop=4
 
 " Add invisivle character reperesentation
 set list listchars=tab:»\ ,trail:\␣,eol:↩
+
+" Set Gui Font
+" set guifont=fira_code
+
+" Airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
