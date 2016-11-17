@@ -19,3 +19,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-autoclose"]
+	path = bundle/vim-autoclose
+	url = https://github.com/Townk/vim-autoclose.git
