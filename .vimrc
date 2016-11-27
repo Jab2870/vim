@@ -25,8 +25,8 @@ set list listchars=tab:»\ ,trail:\␣,eol:↩
 set incsearch
 
 " MOve lines up/down using arrow keys
-map <Down> ddp
-map <Up> ddkP
+nmap <Down> ddp
+nmap <Up> ddkP
 
 " Airline
 set laststatus=2
