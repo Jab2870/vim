@@ -27,6 +27,9 @@ set incsearch
 " Show commands as you type them
 set showcmd
 
+" Set default buffer to system clipboard
+set clipboard=unnamedplus
+
 " Move lines up/down using arrow keys
 nmap <Down> ddp
 nmap <Up> ddkP
