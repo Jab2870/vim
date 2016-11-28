@@ -24,7 +24,10 @@ set list listchars=tab:»\ ,trail:\␣,eol:↩
 " make search highlight as you type
 set incsearch
 
-" MOve lines up/down using arrow keys
+" Show commands as you type them
+set showcmd
+
+" Move lines up/down using arrow keys
 nmap <Down> ddp
 nmap <Up> ddkP
 
