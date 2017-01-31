@@ -34,6 +34,8 @@ set clipboard=unnamedplus
 nmap <Down> ddp
 nmap <Up> ddkP
 
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+
 " Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
