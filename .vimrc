@@ -4,6 +4,9 @@ set nocompatible
 " set syntax highlighting
 syntax on
 
+" Enable netrw
+filetype plugin on
+
 " start pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -11,6 +14,12 @@ call pathogen#helptags()
 " set relative ruler with current line as real line number
 set relativenumber
 set number
+
+" search in sub folders
+set path+=**
+
+" Display matching files when tab completing
+set wildmenu
 
 " set tabwidth
 set autoindent
@@ -24,11 +33,13 @@ set list listchars=tab:»\ ,trail:\␣,eol:↩
 " make search highlight as you type
 set incsearch
 
+" Make search case insensitive unless I type a capital letter
+set ignorecase smartcase
+
+set backspace=indent,eol,start
+
 " Show commands as you type them
 set showcmd
-
-" Set default buffer to system clipboard
-set clipboard=unnamedplus
 
 " Move lines up/down using arrow keys
 nmap <Down> ddp
@@ -93,3 +104,7 @@ endfun
 
 " Run after "doing all the startup stuff"
 " autocmd VimEnter * call Start()
+
+
+" Folding
+au FileType html,css,less,javascript,php setl foldmethod=indent foldenable
