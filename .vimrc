@@ -11,6 +11,19 @@ filetype plugin on
 call pathogen#infect()
 call pathogen#helptags()
 
+" Set auto read so a file is updated if externally changed
+set autoread
+
+" Turn on mouse Interaction
+set mouse=a
+
+" Set default split to be right or bottom
+set splitright
+set splitbelow
+
+" Tell vim it's a fast terminal
+set ttyfast
+
 " set relative ruler with current line as real line number
 set relativenumber
 set number
@@ -53,7 +66,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
 " Make vim default to the plus register (system clipboard) when yanking etc.
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 
 " Shows the command I am typing.  I really wish this could be in airline but don't think it can
 set showcmd
@@ -62,8 +75,32 @@ set showcmd
 :map <ScrollWheelUp> <nop>
 :map <ScrollWheelDown> <nop>
 
+" Make Ctrl C and Ctrl V work on system buffer
+nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+"nnoremap <C-v> "+p
+"nnoremap <C-S-v> "+P
+inoremap <C-v> <Esc>"+pa
+
+nnoremap <C-t> :tabnew<cr>
+nnoremap <C-Tab> :tabnext<cr>
+nnoremap <C-S-Tab> :tabprevious<cr>
+
+" map gV to select previously pasted
+nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
 " Set :w!! to save with sudo 
 cmap w!! w !sudo tee %
+
+
+"Run current line as command
+nnoremap Q !!$SHELL <cr>
+
+" Do Shebang line
+inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype detect<cr>YpDi
+
+" DO bullet points
+inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
+
 
 fun! Start()
     " Don't run if: we have commandline arguments, we don't have an empty
@@ -107,4 +144,14 @@ endfun
 
 
 " Folding
+nnoremap <C-Tab> :tabn<cr>
+nnoremap <C-Tab> :tabn<cr>
+nnoremap <C-Tab> :tabn<cr>
+nnoremap <C-Tab> :tabn<cr>
+nnoremap <C-Tab> :tabn<cr>
 au FileType html,css,less,javascript,php setl foldmethod=indent foldenable
+
+"set es6 files to javascript
+augroup filetypedetect
+	autocmd BufNew,BufNewFile,BufRead *.es6 :setfiletype javascript
+augroup END
