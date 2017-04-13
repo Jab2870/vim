@@ -11,6 +11,9 @@ filetype plugin on
 call pathogen#infect()
 call pathogen#helptags()
 
+let mapleader = ","
+let maplocalleader = "\\"
+
 " Set auto read so a file is updated if externally changed
 set autoread
 
@@ -68,29 +71,22 @@ let g:airline_theme='dark'
 " Make vim default to the plus register (system clipboard) when yanking etc.
 "set clipboard=unnamedplus
 
-" Shows the command I am typing.  I really wish this could be in airline but don't think it can
-set showcmd
-
 " Disable Scroll wheel
 :map <ScrollWheelUp> <nop>
 :map <ScrollWheelDown> <nop>
 
 " Make Ctrl C and Ctrl V work on system buffer
-nnoremap <C-c> "+y
 vnoremap <C-c> "+y
-"nnoremap <C-v> "+p
-"nnoremap <C-S-v> "+P
 inoremap <C-v> <Esc>"+pa
 
+" Make atrl t open new tab
 nnoremap <C-t> :tabnew<cr>
-nnoremap <C-Tab> :tabnext<cr>
-nnoremap <C-S-Tab> :tabprevious<cr>
 
 " map gV to select previously pasted
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
+"
 " Set :w!! to save with sudo 
 cmap w!! w !sudo tee %
-
 
 "Run current line as command
 nnoremap Q !!$SHELL <cr>
@@ -101,6 +97,9 @@ inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype dete
 " DO bullet points
 inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
 
+" edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 fun! Start()
     " Don't run if: we have commandline arguments, we don't have an empty
@@ -142,16 +141,23 @@ endfun
 " Run after "doing all the startup stuff"
 " autocmd VimEnter * call Start()
 
-
-" Folding
-nnoremap <C-Tab> :tabn<cr>
-nnoremap <C-Tab> :tabn<cr>
-nnoremap <C-Tab> :tabn<cr>
-nnoremap <C-Tab> :tabn<cr>
-nnoremap <C-Tab> :tabn<cr>
-au FileType html,css,less,javascript,php setl foldmethod=indent foldenable
-
-"set es6 files to javascript
-augroup filetypedetect
+augroup file_web
+	autocmd!
+	autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
+augroup END
+"
+"
+augroup file_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker foldenable
+	autocmd FileType vim setlocal foldcolumn=3
+augroup END
+"
+""set es6 files to javascript
+augroup detectES6
+	autocmd!
 	autocmd BufNew,BufNewFile,BufRead *.es6 :setfiletype javascript
 augroup END
+
+
+
