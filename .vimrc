@@ -1,3 +1,4 @@
+" Standard setup {{{1
 " set non-compatible
 set nocompatible
 
@@ -5,15 +6,17 @@ set nocompatible
 syntax on
 
 " Enable netrw
-filetype plugin on
+filetype plugin indent on
 
 " start pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
+"Leaders {{{1
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Config {{{1
 " Set auto read so a file is updated if externally changed
 set autoread
 
@@ -52,14 +55,17 @@ set incsearch
 " Make search case insensitive unless I type a capital letter
 set ignorecase smartcase
 
+" Make backspace work properly in insert mode
 set backspace=indent,eol,start
 
 " Show commands as you type them
 set showcmd
 
-" Move lines up/down using arrow keys
-nmap <Down> ddp
-nmap <Up> ddkP
+" Make vim default to the plus register (system clipboard) when yanking etc.
+"set clipboard=unnamedplus
+
+
+" Plugin Options {{{1
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
@@ -68,14 +74,25 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
-" Make vim default to the plus register (system clipboard) when yanking etc.
-"set clipboard=unnamedplus
+" Functions {{{1
+
+function! NextMark()
+	execute "normal! /(<.>)\<cr>da("
+	execute "startinsert"
+endfunction
+
+
+" Mappings {{{1
+" Move lines up/down using arrow keys
+nnoremap <Down> ddp
+nnoremap <Up> ddkP
 
 " Disable Scroll wheel
-:map <ScrollWheelUp> <nop>
-:map <ScrollWheelDown> <nop>
+noremap <ScrollWheelUp> <nop>
+noremap <ScrollWheelDown> <nop>
 
 " Make Ctrl C and Ctrl V work on system buffer
+" if in visual or insert mode respectively
 vnoremap <C-c> "+y
 inoremap <C-v> <Esc>"+pa
 
@@ -86,7 +103,7 @@ nnoremap <C-t> :tabnew<cr>
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
 "
 " Set :w!! to save with sudo 
-cmap w!! w !sudo tee %
+cnoremap w!! w !sudo tee %
 
 "Run current line as command
 nnoremap Q !!$SHELL <cr>
@@ -101,6 +118,17 @@ inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Set double space in insert mode to go to next mark and enter insert mode
+inoremap <space><space> <Esc>:call NextMark()<cr>
+
+" Abreviations {{{1
+
+iabbrev @@ jonathan@fellowshipproductions.co.uk
+iabbrev @@@ jonathan@lunarweb.co.uk
+
+
+
+" Start Screen Settings {{{1
 fun! Start()
     " Don't run if: we have commandline arguments, we don't have an empty
     " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
@@ -141,22 +169,30 @@ endfun
 " Run after "doing all the startup stuff"
 " autocmd VimEnter * call Start()
 
+" File Type Specific {{{1
 augroup file_web
 	autocmd!
-	autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
+	"autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
 augroup END
 "
+augroup new_html
+	autocmd!
+	autocmd BufNew *.html execute "read ~/Templates/html"
+	autocmd BufNew *.html execute "normal! ggdd"
+	autocmd BufNew *.html execute NextMark()
+	autocmd BufNew *.html setlocal filetype=html
+
+augroup END
 "
 augroup file_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker foldenable
-	autocmd FileType vim setlocal foldcolumn=3
 augroup END
-"
+
 ""set es6 files to javascript
 augroup detectES6
 	autocmd!
-	autocmd BufNew,BufNewFile,BufRead *.es6 :setfiletype javascript
+	autocmd BufNew,BufNewFile,BufRead *.es6 :setlocal filetype=javascript
 augroup END
 
 
