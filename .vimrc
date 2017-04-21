@@ -81,6 +81,11 @@ function! NextMark()
 	execute "startinsert"
 endfunction
 
+function! NewHtml()
+	execute "normal! :read ~/Templates/html"
+	execute "normal! ggdd"
+	call NextMark()
+endfunction
 
 " Mappings {{{1
 " Move lines up/down using arrow keys
@@ -177,10 +182,7 @@ augroup END
 "
 augroup new_html
 	autocmd!
-	autocmd BufNew *.html read ~/Templates/html
-	autocmd BufNew *.html normal! ggdd
-	"autocmd BufNew *.html call NextMark()
-	autocmd BufNew *.html setlocal filetype=html
+	autocmd BufNew *.html call NewHtml()
 augroup END
 "
 augroup file_vim
