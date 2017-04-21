@@ -177,11 +177,10 @@ augroup END
 "
 augroup new_html
 	autocmd!
-	autocmd BufNew *.html execute "read ~/Templates/html"
-	autocmd BufNew *.html execute "normal! ggdd"
-	autocmd BufNew *.html execute NextMark()
+	autocmd BufNew *.html read ~/Templates/html
+	autocmd BufNew *.html normal! ggdd
+	"autocmd BufNew *.html call NextMark()
 	autocmd BufNew *.html setlocal filetype=html
-
 augroup END
 "
 augroup file_vim
