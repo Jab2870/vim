@@ -125,7 +125,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Set double space in insert mode to go to next mark and enter insert mode
-inoremap <space><space> <Esc>:call NextMark()<cr>
+inoremap <leader><leader> <Esc>:call NextMark()<cr>
 
 " Abreviations {{{1
 
