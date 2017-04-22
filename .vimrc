@@ -82,9 +82,10 @@ function! NextMark()
 endfunction
 
 function! NewHtml()
-	execute "normal! :read ~/Templates/html"
-	execute "normal! ggdd"
-	call NextMark()
+	read ~/Templates/html
+	normal! ggdd
+	setlocal filetype=html
+	"call NextMark()
 endfunction
 
 " Mappings {{{1
@@ -182,7 +183,7 @@ augroup END
 "
 augroup new_html
 	autocmd!
-	autocmd BufNew *.html call NewHtml()
+	autocmd BufNew,BufNewFile *.html call NewHtml()
 augroup END
 "
 augroup file_vim
