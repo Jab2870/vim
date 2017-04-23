@@ -77,7 +77,7 @@ let g:airline_theme='dark'
 " Functions {{{1
 
 function! NextMark()
-	execute "normal! /(<.>)\<cr>da("
+	execute "normal! /(<.>)\<cr>zvda("
 	execute "startinsert"
 endfunction
 
@@ -178,8 +178,21 @@ endfun
 " File Type Specific {{{1
 augroup file_web
 	autocmd!
-	"autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
+	autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
 augroup END
+
+augroup htmlShortcuts
+	autocmd FileType html inoremap <buffer> ;b <b></b><Space>(<.>)<Esc>FbT>i
+	autocmd FileType html inoremap <buffer> ;i <em></em><Space>(<.>)<Esc>FeT>i
+	autocmd FileType html inoremap <buffer> ;1 <h1></h1><Enter><Enter>(<.>)<Esc>2kf<i
+	autocmd FileType html inoremap <buffer> ;2 <h2></h2><Enter><Enter>(<.>)<Esc>2kf<i
+	autocmd FileType html inoremap <buffer> ;3 <h3></h3><Enter><Enter>(<.>)<Esc>2kf<i
+	autocmd FileType html inoremap <buffer> ;p <p></p><Enter><Enter>(<.>)<Esc>02kf>a
+	autocmd FileType html inoremap <buffer> ;a <a<Space>href="">(<.>)</a><Space>(<.>)<Esc>F"i
+	autocmd FileType html inoremap <buffer> ;ul <ul><Enter><li></li><Enter></ul><Enter><Enter>(<.>)<Esc>03kf<i
+	autocmd FileType html inoremap <buffer> ;li <Esc>o<li></li><Esc>F>a
+	autocmd FileType html inoremap <buffer> ;ol <ol><Enter><li></li><Enter></ol><Enter><Enter>(<.>)<Esc>03kf<i
+augroup end
 "
 augroup new_html
 	autocmd!
