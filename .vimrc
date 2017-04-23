@@ -88,6 +88,13 @@ function! NewHtml()
 	"call NextMark()
 endfunction
 
+
+function! NewLatex()
+	read ~/Templates/latex
+	normal! ggdd
+	setlocal filetype=tex
+endfunction
+
 " Mappings {{{1
 " Move lines up/down using arrow keys
 nnoremap <Down> ddp
@@ -198,7 +205,12 @@ augroup new_html
 	autocmd!
 	autocmd BufNew,BufNewFile *.html call NewHtml()
 augroup END
-"
+
+augroup new_latex
+	autocmd!
+	autocmd BufNew,BufNewFile *.tex,*.latex call NewLatex()
+augroup END
+
 augroup file_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker foldenable
