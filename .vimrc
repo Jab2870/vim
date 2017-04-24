@@ -119,7 +119,7 @@ nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
 cnoremap w!! w !sudo tee %
 
 "Run current line as command
-nnoremap Q !!$SHELL <cr>
+nnoremap <leader>q !!$SHELL <cr>
 
 " Do Shebang line
 inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype detect<cr>YpDi
@@ -189,6 +189,7 @@ augroup file_web
 augroup END
 
 augroup htmlShortcuts
+	autocmd!
 	autocmd FileType html inoremap <buffer> ;b <b></b><Space>(<.>)<Esc>FbT>i
 	autocmd FileType html inoremap <buffer> ;i <em></em><Space>(<.>)<Esc>FeT>i
 	autocmd FileType html inoremap <buffer> ;1 <h1></h1><Enter><Enter>(<.>)<Esc>2kf<i
@@ -201,6 +202,12 @@ augroup htmlShortcuts
 	autocmd FileType html inoremap <buffer> ;ol <ol><Enter><li></li><Enter></ol><Enter><Enter>(<.>)<Esc>03kf<i
 augroup end
 "
+augroup cssShortcuts
+	autocmd!
+	autocmd FileType css,less inoremap <buffer> ;m @media screen and (min-width:px){<cr>(<.>)<cr>}<Esc>?px<cr>i
+	autocmd FileType css,less inoremap <buffer> ;M @media screen and (max-width:px){<cr>(<.>)<cr>}<Esc>?px<cr>i
+augroup end
+
 augroup new_html
 	autocmd!
 	autocmd BufNew,BufNewFile *.html call NewHtml()
