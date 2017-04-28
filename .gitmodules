@@ -7,9 +7,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/vim-commentary"]
-	path = bundle/vim-commentary
-	url = git://github.com/tpope/vim-commentary.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -19,9 +16,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = https://github.com/tmhedberg/matchit
