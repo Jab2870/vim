@@ -31,3 +31,6 @@
 [submodule "bundle/TeX-PDF"]
 	path = bundle/TeX-PDF
 	url = https://github.com/vim-scripts/TeX-PDF
+[submodule "bundle/vimtex"]
+	path = bundle/vimtex
+	url = https://github.com/lervag/vimtex
