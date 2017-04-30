@@ -34,6 +34,9 @@ set ttyfast
 set relativenumber
 set number
 
+" Stop vim wrapping a line mid-word
+set linebreak
+
 " search in sub folders
 set path+=**
 
