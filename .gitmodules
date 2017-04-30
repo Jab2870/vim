@@ -34,3 +34,6 @@
 [submodule "bundle/vimtex"]
 	path = bundle/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "bundle/quicktex"]
+	path = bundle/quicktex
+	url = https://github.com/brennier/quicktex
