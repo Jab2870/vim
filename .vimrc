@@ -23,6 +23,9 @@ set autoread
 " Turn on mouse Interaction
 set mouse=a
 
+" Set spelcheck language
+set spelllang=en_gb
+
 " Set default split to be right or bottom
 set splitright
 set splitbelow
@@ -77,6 +80,56 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
+
+" Quick tex options {{{2
+let g:quicktex_html = {
+	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\';b'		:  "<b><+++></b> <++>",
+	\';i'		:  "<em><+++></em> <++>",
+	\';1'		:  "<h1><+++></h1> <++>",
+	\';2'		:  "<h2><+++></h2> <++>",
+	\';3'		:  "<h3><+++></h3> <++>",
+	\';p'		:  "<p><+++></p> <++>",
+	\';a'		:  "<a href=\"<++>\"><+++></a> <++>",
+	\';ul'		:  "<ul>\<CR><li><+++></li>\<CR></ul>\<CR>\<CR><++>",
+	\';ol'		:  "<ol>\<CR><li><+++></li>\<CR></ol>\<CR>\<CR><++>",
+	\';li'		:  "<li><++></li>",
+\}
+
+let g:quicktex_tex = {
+	\' '   : "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\';b'  : "\\textbf{<+++>} <++>",
+	\';e'  : "\\emph{<+++>} <++>",
+	\'prf' : "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
+\}
+
+let g:quicktex_math = {
+	\' '    : "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\';b'  : "\\mathbf{<+++>} <++>",
+	\'fr'   : '\mathcal{R} ',
+	\'eq'   : '= ',
+	\'set'  : '\{ <+++> \} <++>',
+	\'frac' : '\frac{<+++>}{<++>} <++>',
+	\'one'  : '1 ',
+	\'st'   : ': ',
+	\'in'   : '\in ',
+	\'bn'   : '\mathbb{N} ',
+\}
+
+let g:quicktex_markdown = {
+	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\';b'		: "**<+++>** <++>",
+	\';i'		:  "*<+++>* <++>",
+	\';a'		:  "[<+++>](<+url+>) <++>",
+\}
+
+let g:quicktex_pandoc = g:quicktex_markdown
+
+
+"}}}
+
+
+
 " Functions {{{1
 
 function! NextMark()
@@ -103,6 +156,9 @@ endfunction
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
 
+" Activate spelling
+nnoremap <F7> :set spell!<cr>
+
 " Disable Scroll wheel
 noremap <ScrollWheelUp> <nop>
 noremap <ScrollWheelDown> <nop>
@@ -112,13 +168,13 @@ noremap <ScrollWheelDown> <nop>
 vnoremap <C-c> "+y
 inoremap <C-v> <Esc>"+pa
 
-" Make atrl t open new tab
+" Make Ctrl t open new tab
 nnoremap <C-t> :tabnew<cr>
 
 " map gV to select previously pasted
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
 "
-" Set :w!! to save with sudo 
+" Set :w!! to save with sudo
 cnoremap w!! w !sudo tee %
 
 "Run current line as command
@@ -135,7 +191,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Set double space in insert mode to go to next mark and enter insert mode
-inoremap <leader><leader> <Esc>:call NextMark()<cr>
+"inoremap <leader><leader> <Esc>:call NextMark()<cr>
 
 " Abreviations {{{1
 
@@ -186,51 +242,54 @@ endfun
 " autocmd VimEnter * call Start()
 
 " File Type Specific {{{1
+"Make web files fold on indent {{{2
 augroup file_web
 	autocmd!
 	autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
 augroup END
 
-augroup htmlShortcuts
+" Add Html maps, Currently only pandoc conversion {{{2
+augroup html
 	autocmd!
-	autocmd FileType html inoremap <buffer> ;b <b></b><Space>(<.>)<Esc>FbT>i
-	autocmd FileType html inoremap <buffer> ;i <em></em><Space>(<.>)<Esc>FeT>i
-	autocmd FileType html inoremap <buffer> ;1 <h1></h1><Enter><Enter>(<.>)<Esc>2kf<i
-	autocmd FileType html inoremap <buffer> ;2 <h2></h2><Enter><Enter>(<.>)<Esc>2kf<i
-	autocmd FileType html inoremap <buffer> ;3 <h3></h3><Enter><Enter>(<.>)<Esc>2kf<i
-	autocmd FileType html inoremap <buffer> ;p <p></p><Enter><Enter>(<.>)<Esc>02kf>a
-	autocmd FileType html inoremap <buffer> ;a <a<Space>href="">(<.>)</a><Space>(<.>)<Esc>F"i
-	autocmd FileType html inoremap <buffer> ;ul <ul><Enter><li></li><Enter></ul><Enter><Enter>(<.>)<Esc>03kf<i
-	autocmd FileType html inoremap <buffer> ;li <Esc>o<li></li><Esc>F>a
-	autocmd FileType html inoremap <buffer> ;ol <ol><Enter><li></li><Enter></ol><Enter><Enter>(<.>)<Esc>03kf<i
-augroup end
-"
-augroup cssShortcuts
-	autocmd!
-	autocmd FileType css,less inoremap <buffer> ;m @media screen and (min-width:px){<cr>(<.>)<cr>}<Esc>?px<cr>i
-	autocmd FileType css,less inoremap <buffer> ;M @media screen and (max-width:px){<cr>(<.>)<cr>}<Esc>?px<cr>i
-augroup end
+	" Run current line through pandoc.  
+	" Convert from markdown to html
+	autocmd FileType html nnoremap <localleader>p :.!pandoc -t html -f markdown-auto_identifiers --wrap=preserve<cr>
+	"convert from html to markdown
+	autocmd FileType html nnoremap <localleader>P :.!pandoc -t markdown -f html --wrap=preserve --atx-headers<cr>
 
-augroup new_html
-	autocmd!
-	autocmd BufNew,BufNewFile *.html call NewHtml()
+	"Run current selection through pandoc
+	" Convert from markdown to html
+	autocmd FileType html vnoremap <localleader>p :!pandoc -t html -f markdown-auto_identifiers --wrap=preserve<cr>
+	"convert from html to markdown
+	autocmd FileType html vnoremap <localleader>P :!pandoc -t markdown -f html --wrap=preserve --atx-headers<cr>
 augroup END
 
-augroup new_latex
+" Add latex maps, Currently only pandoc conversion {{{2
+augroup latex
 	autocmd!
-	autocmd BufNew,BufNewFile *.tex,*.latex call NewLatex()
+	" Run current line through pandoc.  
+	" Convert from markdown to latex
+	autocmd FileType tex,latex nnoremap <localleader>p :.!pandoc -t latex -f markdown-auto_identifiers --wrap=preserve<cr>
+	"convert from latex to markdown
+	autocmd FileType tex,latex vnoremap <localleader>P :.!pandoc -t markdown -f latex --wrap=preserve --atx-headers<cr>
+
+	"Run current selection through pandoc
+	" Convert from markdown to latex
+	autocmd FileType tex,latex vnoremap <localleader>p :!pandoc -t latex -f markdown-auto_identifiers --wrap=preserve<cr>
+	"convert from latex to markdown
+	autocmd FileType tex,latex vnoremap <localleader>P :!pandoc -t markdown -f latex --wrap=preserve --atx-headers<cr>
 augroup END
 
+" Make vim fold using markers {{{2
 augroup file_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker foldenable
 augroup END
 
-""set es6 files to javascript
+""set es6 files to javascript {{{2
 augroup detectES6
 	autocmd!
 	autocmd BufNew,BufNewFile,BufRead *.es6 :setlocal filetype=javascript
 augroup END
-
 
 
