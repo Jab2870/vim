@@ -245,7 +245,7 @@ endfun
 "Make web files fold on indent {{{2
 augroup file_web
 	autocmd!
-	autocmd FileType html,css,less,javascript,php setlocal foldmethod=indent foldenable
+	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent foldenable
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2
