@@ -80,6 +80,10 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
+" Vimtex
+
+
+let g:vimtex_view_method = 'zathura'
 
 " Quick tex options {{{2
 let g:quicktex_html = {
