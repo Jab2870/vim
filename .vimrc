@@ -86,6 +86,7 @@ let g:airline_theme='dark'
 let g:vimtex_view_method = 'zathura'
 
 " Quick tex options {{{2
+" HTML {{{3
 let g:quicktex_html = {
 	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
 	\';b'		:  "<b><+++></b> <++>",
@@ -100,11 +101,14 @@ let g:quicktex_html = {
 	\';li'		:  "<li><++></li>",
 \}
 
+" Latex Normal {{{3
 let g:quicktex_tex = {
 	\' ' 		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
 	\';b'		: "\\textbf{<+++>} <++>",
 	\';e'		: "\\emph{<+++>} <++>",
 	\'prf'		: "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
+	\';m'		: "$<+++>$ <++>",
+	\';M'		: "\\[ <+++> \\] <++>",
 	\';ma'		: "$a$ ",
 	\';mb'		: "$b$ ",
 	\';mc'		: "$c$ ",
@@ -159,31 +163,31 @@ let g:quicktex_tex = {
 	\';mZ'		: "$Z$ ",
 \}
 
+" Latex Maths {{{3
 let g:quicktex_math = {
 	\' '    : "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
 	\';b'  : "\\mathbf{<+++>} <++>",
+	\';B'  : "\\mathbb{<+++>} <++>",
 	\'fr'   : '\mathcal{R} ',
 	\'eq'   : '= ',
 	\'set'  : '\{ <+++> \} <++>',
 	\'frac' : '\frac{<+++>}{<++>} <++>',
-	\'one'  : '1 ',
-	\'st'   : ': ',
 	\'in'   : '\in ',
 	\'bn'   : '\mathbb{N} ',
 \}
 
+" Markdown {{{3
 let g:quicktex_markdown = {
 	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
 	\';b'		: "**<+++>** <++>",
 	\';i'		:  "*<+++>* <++>",
 	\';a'		:  "[<+++>](<+url+>) <++>",
 \}
-
 let g:quicktex_pandoc = g:quicktex_markdown
 
 
 "}}}
-
+"}}}
 
 
 " Functions {{{1
