@@ -47,3 +47,6 @@
 [submodule "bundle/vim-rmarkdown"]
 	path = bundle/vim-rmarkdown
 	url = https://github.com/vim-pandoc/vim-rmarkdown
+[submodule "bundle/united-front"]
+	path = bundle/united-front
+	url = git@github.com:ardagnir/united-front.git
