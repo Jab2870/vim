@@ -22,9 +22,6 @@
 [submodule "bundle/vim-css3-syntax"]
 	path = bundle/vim-css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax
-[submodule "bundle/TeX-PDF"]
-	path = bundle/TeX-PDF
-	url = https://github.com/vim-scripts/TeX-PDF
 [submodule "bundle/vimtex"]
 	path = bundle/vimtex
 	url = https://github.com/lervag/vimtex
