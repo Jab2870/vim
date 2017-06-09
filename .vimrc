@@ -250,6 +250,10 @@ inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" add new line without entering insert mode
+nnoremap <CR> o<Esc>
+nnoremap <S-Enter> O<Esc>
+
 " Set double space in insert mode to go to next mark and enter insert mode
 "inoremap <leader><leader> <Esc>:call NextMark()<cr>
 
