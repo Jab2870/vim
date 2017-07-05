@@ -47,3 +47,6 @@
 [submodule "bundle/united-front"]
 	path = bundle/united-front
 	url = git@github.com:ardagnir/united-front.git
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = https://github.com/elzr/vim-json
