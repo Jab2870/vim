@@ -350,6 +350,12 @@ augroup file_vim
 	autocmd FileType vim setlocal foldmethod=marker foldenable
 augroup END
 
+" Make json fold using syntax {{{2
+augroup file_json
+	autocmd!
+	autocmd FileType json setlocal foldmethod=syntax foldenable
+augroup END
+
 ""set es6 files to javascript {{{2
 augroup detectES6
 	autocmd!
