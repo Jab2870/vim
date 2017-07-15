@@ -81,9 +81,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
 " Vimtex
-
-
 let g:vimtex_view_method = 'zathura'
+
+" Emmet
+let g:user_emmet_leader_key="<C-l>"
+let g:user_emmet_install_global = 0
+
 
 " Quick tex options {{{2
 " HTML {{{3
@@ -310,6 +313,7 @@ endfun
 augroup file_web
 	autocmd!
 	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent foldenable
+	autocmd FileType html,xhtml,css,less,javascript,php EmmetInstall
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2
