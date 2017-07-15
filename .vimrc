@@ -103,6 +103,50 @@ let g:quicktex_html = {
 	\';ol'		:  "<ol>\<CR><li><+++></li>\<CR></ol>\<CR>\<CR><++>",
 	\';li'		:  "<li><++></li>",
 \}
+" CSS {{{3
+let g:quicktex_css = {
+	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\
+	\'w'		:  "width: <+++>;\<CR><++>",
+	\'h'		:  "height: <+++>;\<CR><++>",
+	\'mw'		:  "max-width: <+++>;\<CR><++>",
+	\'mh'		:  "max-height: <+++>;\<CR><++>",
+	\'t'		:  "top: <+++>;\<CR><++>",
+	\'b'		:  "bottom: <+++>;\<CR><++>",
+	\'l'		:  "left: <+++>;\<CR><++>",
+	\'r'		:  "right: <+++>;\<CR><++>",
+	\'pos'		:  "position: <+++>;\<CR><++>",
+	\
+	\'m'		:  "margin: <+++>;\<CR><++>",
+	\'mt'		:  "margin-top: <+++>;\<CR><++>",
+	\'mb'		:  "margin-bottom: <+++>;\<CR><++>",
+	\'ml'		:  "margin-left: <+++>;\<CR><++>",
+	\'mr'		:  "margin-right: <+++>;\<CR><++>",
+	\
+	\'p'		:  "padding: <+++>;\<CR><++>",
+	\'pt'		:  "padding-top: <+++>;\<CR><++>",
+	\'pb'		:  "padding-bottom: <+++>;\<CR><++>",
+	\'pl'		:  "padding-left: <+++>;\<CR><++>",
+	\'pr'		:  "padding-right: <+++>;\<CR><++>",
+	\
+	\'bor'		:  "border: <+++>;\<CR><++>",
+	\'bort'		:  "border-top: <+++>;\<CR><++>",
+	\'borb'		:  "border-bottom: <+++>;\<CR><++>",
+	\'borl'		:  "border-left: <+++>;\<CR><++>",
+	\'borr'		:  "border-right: <+++>;\<CR><++>",
+	\
+	\';abs'		:  "position: absolute;\<CR><++>",
+	\';rel'		:  "position: relative;\<CR><++>",
+	\';fix'		:  "position: fixed;\<CR><++>",
+	\
+	\';block'	:  "position: block;\<CR><++>",
+	\';inl'		:  "position: inline;\<CR><++>",
+	\';inb'		:  "position: inline-block;\<CR><++>",
+	\';flex'	:  "position: flex;\<CR><++>",
+	\';inf'		:  "position: inline-flex;\<CR><++>",
+	\
+\}
+let g:quicktex_less = g:quicktex_css
 
 " Latex Normal {{{3
 let g:quicktex_tex = {
