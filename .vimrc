@@ -410,4 +410,9 @@ augroup detectES6
 	autocmd BufNew,BufNewFile,BufRead *.es6 :setlocal filetype=javascript
 augroup END
 
+""set htaccess variations to apache {{{2
+augroup detectHtaccess
+	autocmd!
+	autocmd BufNew,BufNewFile,BufRead *.htaccess,*.localhtaccess,*.livehtaccess :setlocal filetype=apache
+augroup END
 
