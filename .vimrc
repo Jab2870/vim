@@ -262,6 +262,8 @@ endfunction
 " Move lines up/down using arrow keys
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
+nnoremap <Right> xp
+nnoremap <Left> xhP
 
 " Activate spelling
 nnoremap <F7> :set spell!<cr>
@@ -308,7 +310,6 @@ nnoremap <S-Enter> O<Esc>
 
 iabbrev @@ jonathan@fellowshipproductions.co.uk
 iabbrev @@@ jonathan@lunarweb.co.uk
-
 
 
 " Start Screen Settings {{{1
@@ -363,7 +364,7 @@ augroup END
 " Add Html maps, Currently only pandoc conversion {{{2
 augroup html
 	autocmd!
-	" Run current line through pandoc.  
+	" Run current line through pandoc.
 	" Convert from markdown to html
 	autocmd FileType html nnoremap <localleader>p :.!pandoc -t html -f markdown-auto_identifiers --wrap=preserve<cr>
 	"convert from html to markdown
@@ -415,4 +416,5 @@ augroup detectHtaccess
 	autocmd!
 	autocmd BufNew,BufNewFile,BufRead *.htaccess,*.localhtaccess,*.livehtaccess :setlocal filetype=apache
 augroup END
+
 
