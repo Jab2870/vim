@@ -139,11 +139,11 @@ let g:quicktex_css = {
 	\';rel'		:  "position: relative;\<CR><++>",
 	\';fix'		:  "position: fixed;\<CR><++>",
 	\
-	\';block'	:  "position: block;\<CR><++>",
-	\';inl'		:  "position: inline;\<CR><++>",
-	\';inb'		:  "position: inline-block;\<CR><++>",
-	\';flex'	:  "position: flex;\<CR><++>",
-	\';inf'		:  "position: inline-flex;\<CR><++>",
+	\';block'	:  "display: block;\<CR><++>",
+	\';inl'		:  "display: inline;\<CR><++>",
+	\';inb'		:  "display: inline-block;\<CR><++>",
+	\';flex'	:  "display: flex;\<CR><++>",
+	\';inf'		:  "display: inline-flex;\<CR><++>",
 	\
 \}
 let g:quicktex_less = g:quicktex_css
