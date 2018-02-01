@@ -56,3 +56,9 @@
 [submodule "bundle/vim-es6"]
 	path = bundle/vim-es6
 	url = https://github.com/isRuslan/vim-es6.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = https://github.com/shawncplus/phpcomplete.vim
+[submodule "bundle/wordpress.vim"]
+	path = bundle/wordpress.vim
+	url = https://github.com/dsawardekar/wordpress.vim
