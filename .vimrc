@@ -259,7 +259,7 @@ function! NewLatex()
 endfunction
 
 " Mappings {{{1
-" Move lines up/down using arrow keys
+" Move lines up/down/left/right using arrow keys
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
 nnoremap <Right> xp
@@ -302,6 +302,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " add new line without entering insert mode
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
+
+" Make jj in insert mode go to normal mode
+inoremap jj <Esc>
 
 " Set double space in insert mode to go to next mark and enter insert mode
 "inoremap <leader><leader> <Esc>:call NextMark()<cr>
