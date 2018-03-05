@@ -161,9 +161,21 @@ let g:quicktex_css = {
 	\';flex'	:  "display: flex;\<CR><++>",
 	\';inf'		:  "display: inline-flex;\<CR><++>",
 	\
+	\'include'	:  "@import \"<+++>\";\<CR><++>",
+	\'@include'	:  "@import \"<+++>\";\<CR><++>",
+	\'require'	:  "@import \"<+++>\";\<CR><++>",
+	\'@require'	:  "@import \"<+++>\";\<CR><++>",
+	\'import'	:  "@import \"<+++>\";\<CR><++>"
 \}
 let g:quicktex_less = g:quicktex_css
 
+" JS {{{3
+let g:quicktex_javascript = {
+	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\
+	\';fun'		:  "function <+++>(<++>){\<CR><++>\<CR>}",
+	\
+\}
 " Latex Normal {{{3
 let g:quicktex_tex = {
 	\' ' 		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
@@ -247,6 +259,14 @@ let g:quicktex_markdown = {
 	\';a'		:  "[<+++>](<+url+>) <++>",
 \}
 let g:quicktex_pandoc = g:quicktex_markdown
+" PHP {{{3
+let g:quicktex_php = {
+	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+	\';ob'		: "ob_start();\<CR><+++>\<CR>ob_get_clean();",
+	\';vd'		:  "var_dump(<+++>);",
+	\';obvd'		: "ob_start();\<CR>var_dump(<+++>);\<CR>echo htmlspecialchars(ob_get_clean());",
+	\';nl'		: "echo '<br />';",
+\}
 
 
 "}}}
@@ -273,6 +293,12 @@ function! NewLatex()
 	normal! ggdd
 	setlocal filetype=tex
 endfunction
+
+" Commands {{{1
+
+"gets the wp salts
+command WpSalts :r! curl https://api.wordpress.org/secret-key/1.1/salt 2> /dev/null
+
 
 " Mappings {{{1
 " Move lines up/down/left/right using arrow keys
