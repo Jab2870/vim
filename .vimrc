@@ -12,6 +12,7 @@ filetype plugin indent on
 call pathogen#infect()
 call pathogen#helptags()
 
+
 "Leaders {{{1
 let mapleader = ","
 let maplocalleader = "\\"
@@ -294,6 +295,20 @@ function! NewLatex()
 	setlocal filetype=tex
 endfunction
 
+" Strip the newline from the end of a string
+function! Chomp(str)
+  return substitute(a:str, '\n$', '', '')
+endfunction
+
+" Find a file and pass it to cmd
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("git ls-files | rofi -dmenu -i -l 20 -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
+
 " Commands {{{1
 
 "gets the wp salts
@@ -313,6 +328,8 @@ nnoremap <F7> :set spell!<cr>
 " Disable Scroll wheel
 noremap <ScrollWheelUp> <nop>
 noremap <ScrollWheelDown> <nop>
+
+nnoremap <c-o> :call DmenuOpen("e")<cr>
 
 " Make Ctrl C and Ctrl V work on system buffer
 " if in visual or insert mode respectively
