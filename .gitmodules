@@ -62,3 +62,9 @@
 [submodule "bundle/vim-openscad"]
 	path = bundle/vim-openscad
 	url = https://github.com/sirtaj/vim-openscad
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/vim-endwise"]
+	path = bundle/vim-endwise
+	url = git@github.com:Jab2870/vim-endwise.git
