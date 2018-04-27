@@ -302,17 +302,32 @@ endfunction
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files | rofi -dmenu -i -l 20 -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
+	let fname = Chomp(system("git ls-files | rofi -dmenu -i -l 20 -p " . a:cmd))
+	if empty(fname)
+		return
+	endif
+	execute a:cmd . " " . fname
+endfunction
+
+" Moves to open window, or focuses it
+" https://www.reddit.com/r/vim/comments/8f80o3/awesome_way_to_navigate_windows_and_autocreate/
+function! WinMove(key)
+	let t:curwin = winnr()
+	exec "wincmd ".a:key
+	if (t:curwin == winnr())
+		if (match(a:key,'[jk]'))
+			wincmd v
+		else
+			wincmd s
+		endif
+		exec "wincmd ".a:key
+	endif
 endfunction
 
 " Commands {{{1
 
 "gets the wp salts
-command WpSalts :r! curl https://api.wordpress.org/secret-key/1.1/salt 2> /dev/null
+command! WpSalts :r! curl https://api.wordpress.org/secret-key/1.1/salt 2> /dev/null
 
 
 " Mappings {{{1
@@ -330,6 +345,12 @@ noremap <ScrollWheelUp> <nop>
 noremap <ScrollWheelDown> <nop>
 
 nnoremap <c-o> :call DmenuOpen("e")<cr>
+
+" make ctrl + hjkl move + create windows
+nnoremap <C-h> :call WinMove('h')<cr>
+nnoremap <C-j> :call WinMove('j')<cr>
+nnoremap <C-k> :call WinMove('k')<cr>
+nnoremap <C-l> :call WinMove('l')<cr>
 
 " Make Ctrl C and Ctrl V work on system buffer
 " if in visual or insert mode respectively
