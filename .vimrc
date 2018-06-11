@@ -370,7 +370,9 @@ cnoremap w!! w !sudo tee %
 nnoremap <leader>q !!$SHELL <cr>
 
 " Do Shebang line
-inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype detect<cr>YpDi
+" inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype detect<cr>YpDi
+inoremap <C-y> <Esc>:sil s/^/#!\/usr\/bin\/env / <bar> filetype detect<cr>YpDi
+
 
 " DO bullet points
 inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
