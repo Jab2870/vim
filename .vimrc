@@ -47,6 +47,9 @@ set path+=**
 " Display matching files when tab completing
 set wildmenu
 
+" Time vim waits to see if you are pushing another key
+set timeoutlen=500
+
 " set tabwidth
 set autoindent
 set smartindent
