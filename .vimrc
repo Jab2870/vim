@@ -400,6 +400,7 @@ iabbrev @@ jonathan@fellowshipproductions.co.uk
 iabbrev @@@ jonathan@lunarweb.co.uk
 
 
+
 " Start Screen Settings {{{1
 fun! Start()
     " Don't run if: we have commandline arguments, we don't have an empty
@@ -447,6 +448,14 @@ augroup file_web
 	autocmd!
 	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent foldenable
 	autocmd FileType html,xhtml,css,less,javascript,php EmmetInstall
+augroup END
+
+nnoremap <localleader>b Ithis.^y$$a = pa.bind(this);
+" js maps {{{2
+augroup javascript
+	autocmd!
+	"binds this in class
+	autocmd FileType javascript nnoremap <localleader>b Ithis.^y$$a = pa.bind(this);
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2
