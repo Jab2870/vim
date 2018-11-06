@@ -169,7 +169,11 @@ let g:quicktex_css = {
 	\'@include'	:  "@import \"<+++>\";\<CR><++>",
 	\'require'	:  "@import \"<+++>\";\<CR><++>",
 	\'@require'	:  "@import \"<+++>\";\<CR><++>",
-	\'import'	:  "@import \"<+++>\";\<CR><++>"
+	\'import'	:  "@import \"<+++>\";\<CR><++>",
+	\
+	\'media'	:  "@media (<+++>){\<CR><++>\<CR>}",
+	\';minw'	:  "@media (min-width: <+++>){\<CR><++>\<CR>}",
+	\';mindw'	:  "@media (min-width: @min-desktop-width){\<CR><+++>\<CR>}",
 \}
 let g:quicktex_less = g:quicktex_css
 
@@ -347,7 +351,7 @@ nnoremap <F7> :set spell!<cr>
 noremap <ScrollWheelUp> <nop>
 noremap <ScrollWheelDown> <nop>
 
-nnoremap <c-o> :call DmenuOpen("e")<cr>
+" nnoremap <c-o> :call DmenuOpen("e")<cr>
 
 " make ctrl + hjkl move + create windows
 nnoremap <C-h> :call WinMove('h')<cr>
@@ -361,7 +365,7 @@ vnoremap <C-c> "+y
 inoremap <C-v> <Esc>"+pa
 
 " Make Ctrl t open new tab
-nnoremap <C-t> :tabnew<cr>
+" nnoremap <C-t> :tabnew<cr>
 
 " map gV to select previously pasted
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
