@@ -107,6 +107,10 @@ let g:vimtex_view_method = 'zathura'
 let g:user_emmet_leader_key="<C-l>"
 let g:user_emmet_install_global = 0
 
+" Tables
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
+
 
 " Quick tex options {{{2
 " HTML {{{3
