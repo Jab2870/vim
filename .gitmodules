@@ -25,9 +25,6 @@
 [submodule "bundle/quicktex"]
 	path = bundle/quicktex
 	url = https://github.com/brennier/quicktex
-[submodule "bundle/vim-pandoc"]
-	path = bundle/vim-pandoc
-	url = https://github.com/vim-pandoc/vim-pandoc
 [submodule "bundle/vim-pandoc-syntax"]
 	path = bundle/vim-pandoc-syntax
 	url = https://github.com/vim-pandoc/vim-pandoc-syntax
