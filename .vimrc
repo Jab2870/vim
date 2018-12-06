@@ -348,6 +348,16 @@ nnoremap <Up> ddkP
 nnoremap <Right> xp
 nnoremap <Left> xhP
 
+" Move lines up/down/left/right using arrow keys
+nnoremap <Down> ddp
+nnoremap <Up> ddkP
+nnoremap <Right> xp
+nnoremap <Left> xhP
+
+" Compiles documents
+nnoremap <leader>cc :w! \| !compiler <c-r>%<CR><CR>
+nnoremap <leader>co :!opout <c-r>%<CR><CR>
+
 " Activate spelling
 nnoremap <F7> :set spell!<cr>
 
