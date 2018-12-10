@@ -356,6 +356,8 @@ nnoremap <Left> xhP
 
 " Compiles documents
 nnoremap <leader>cc :w! \| !compiler <c-r>%<CR><CR>
+nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR><CR>
+nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR><CR>
 nnoremap <leader>co :!opout <c-r>%<CR><CR>
 
 " Activate spelling
