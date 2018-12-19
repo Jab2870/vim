@@ -355,10 +355,10 @@ nnoremap <Right> xp
 nnoremap <Left> xhP
 
 " Compiles documents
-nnoremap <leader>cc :w! \| !compiler <c-r>%<CR><CR>
-nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR><CR>
-nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR><CR>
-nnoremap <leader>co :!opout <c-r>%<CR><CR>
+nnoremap <leader>cc :w! \| !compiler <c-r>%<CR>
+nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR>
+nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR>
+nnoremap <leader>co :!opout <c-r>%<CR>
 
 " Activate spelling
 nnoremap <F7> :set spell!<cr>
@@ -470,12 +470,18 @@ augroup file_web
 	autocmd FileType html,xhtml,css,less,javascript,php EmmetInstall
 augroup END
 
-nnoremap <localleader>b Ithis.^y$$a = pa.bind(this);
 " js maps {{{2
 augroup javascript
 	autocmd!
 	"binds this in class
 	autocmd FileType javascript nnoremap <localleader>b Ithis.^y$$a = pa.bind(this);
+augroup END
+"
+" less maps {{{2
+augroup css
+	autocmd!
+	"binds this in class
+	autocmd FileType less nnoremap <leader>cc :w! \| !lessc --clean-css --source-map --autoprefix="last 3 versions, ie >= 11" styles.less styles.min.css<CR><CR>
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2
