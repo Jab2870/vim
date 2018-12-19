@@ -63,6 +63,6 @@
 	path = bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister
 [submodule "wordpress.vim"]
-	path = wordpress.vim
+	path = bundle/wordpress.vim
 	url = https://github.com/DArcMattr/wordpress.vim
 	branch = universal-ctags
