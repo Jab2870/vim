@@ -358,7 +358,7 @@ nnoremap <Left> xhP
 nnoremap <leader>cc :w! \| !compiler <c-r>%<CR>
 nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR>
 nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR>
-nnoremap <leader>co :!opout <c-r>%<CR>
+nnoremap <leader>co :!opout <c-r>%<CR><CR>
 
 " Activate spelling
 nnoremap <F7> :set spell!<cr>
