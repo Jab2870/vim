@@ -355,9 +355,12 @@ nnoremap <Right> xp
 nnoremap <Left> xhP
 
 " Compiles documents
-nnoremap <leader>cc :w! \| !compiler <c-r>%<CR>
-nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR>
-nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR>
+nnoremap <leader>cc :w! \| !compiler <c-r>%<CR><CR>
+nnoremap <leader>cC :w! \| !compiler <c-r>%<CR>
+nnoremap <leader>cf :w! \| !compiler <c-r>% fplreport<CR><CR>
+nnoremap <leader>cF :w! \| !compiler <c-r>% fplreport<CR>
+nnoremap <leader>cl :w! \| !compiler <c-r>% letter<CR><CR>
+nnoremap <leader>cL :w! \| !compiler <c-r>% letter<CR>
 nnoremap <leader>co :!opout <c-r>%<CR><CR>
 
 " Activate spelling
