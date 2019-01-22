@@ -66,3 +66,6 @@
 	path = bundle/wordpress.vim
 	url = https://github.com/DArcMattr/wordpress.vim
 	branch = universal-ctags
+[submodule "bundle/i3config.vim"]
+	path = bundle/i3config.vim
+	url = https://github.com/mboughaba/i3config.vim

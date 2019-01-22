@@ -520,6 +520,12 @@ augroup latex
 augroup END
 
 " Make vim fold using markers {{{2
+augroup file_i3
+	autocmd!
+	autocmd FileType i3config setlocal foldmethod=marker foldenable
+augroup END
+
+" Make vim fold using markers {{{2
 augroup file_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker foldenable
