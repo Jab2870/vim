@@ -484,7 +484,8 @@ augroup END
 augroup css
 	autocmd!
 	"binds this in class
-	autocmd FileType less nnoremap <leader>cc :w! \| !lessc --clean-css --source-map --autoprefix="last 3 versions, ie >= 11" styles.less styles.min.css<CR><CR>
+	autocmd FileType less nnoremap <leader>cl :w! \| !compiler styles.less<CR><CR>
+	autocmd FileType less nnoremap <leader>cL :w! \| !compiler styles.less<CR>
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2
