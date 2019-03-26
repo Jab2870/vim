@@ -472,7 +472,6 @@ endfun
 augroup file_web
 	autocmd!
 	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent foldenable
-	autocmd FileType html,xhtml,css,less,javascript,php EmmetInstall
 augroup END
 
 " js maps {{{2
