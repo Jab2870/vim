@@ -414,6 +414,8 @@ nnoremap <S-Enter> O<Esc>
 " Make jj in insert mode go to normal mode
 inoremap jj <Esc>
 
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " Set double space in insert mode to go to next mark and enter insert mode
 "inoremap <leader><leader> <Esc>:call NextMark()<cr>
 
@@ -536,6 +538,12 @@ augroup END
 augroup file_json
 	autocmd!
 	autocmd FileType json setlocal foldmethod=syntax foldenable
+augroup END
+
+" Make md  files use spellcheck{{{2
+augroup file_md
+	autocmd!
+	autocmd FileType markdown setlocal spell
 augroup END
 
 ""set es6 files to javascript {{{2
