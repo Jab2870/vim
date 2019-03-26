@@ -101,11 +101,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
 " Vimtex
-let g:vimtex_view_method = 'zathura'
-
-" Emmet
-let g:user_emmet_leader_key="<C-l>"
-let g:user_emmet_install_global = 0
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " Tables
 let g:table_mode_corner_corner='+'
