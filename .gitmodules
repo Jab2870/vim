@@ -66,3 +66,6 @@
 [submodule "bundle/i3config.vim"]
 	path = bundle/i3config.vim
 	url = https://github.com/mboughaba/i3config.vim
+[submodule "bundle/vim-jinja"]
+	path = bundle/vim-jinja
+	url = https://github.com/lepture/vim-jinja.git
