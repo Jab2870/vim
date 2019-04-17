@@ -414,6 +414,7 @@ nnoremap <S-Enter> O<Esc>
 " Make jj in insert mode go to normal mode
 inoremap jj <Esc>
 
+" Fix previous spelling mistake
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Set double space in insert mode to go to next mark and enter insert mode
