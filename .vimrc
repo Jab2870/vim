@@ -44,8 +44,10 @@ set linebreak
 " search in sub folders
 set path+=**
 
-" Display matching files when tab completing
+" Display matching files when tab completing - ignoring files that I probably
+" dont want to match
 set wildmenu
+set wildignore+=*.min.js,*.min.css,*/node_modules/*,*/dist/*
 
 " Time vim waits to see if you are pushing another key
 set timeoutlen=500
@@ -82,8 +84,8 @@ set showcmd
 "Ps = 4  -> steady underline.
 "Ps = 5  -> blinking bar (xterm).
 "Ps = 6  -> steady bar (xterm).
-" let &t_SI = "\e[5 q"
-" let &t_EI = "\e[1 q"
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
 
 " optional reset cursor on start:
 " augroup myCmds
@@ -407,6 +409,9 @@ inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" use command t to search help topics
+nmap <silent> <Leader>h <Plug>(CommandTHelp)
+
 " add new line without entering insert mode
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
@@ -426,47 +431,6 @@ iabbrev @@ jonathan@fellowshipproductions.co.uk
 iabbrev @@@ jonathan@lunarweb.co.uk
 
 
-
-" Start Screen Settings {{{1
-fun! Start()
-    " Don't run if: we have commandline arguments, we don't have an empty
-    " buffer, if we've not invoked as vim or gvim, or if we'e start in insert mode
-    if argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode
-        return
-    endif
-
-    " Start a new buffer ...
-    enew
-
-    " ... and set some options for it
-    setlocal
-        \ bufhidden=wipe
-        \ buftype=nofile
-        \ nobuflisted
-        \ nocursorcolumn
-        \ nocursorline
-        \ nolist
-        \ nonumber
-        \ noswapfile
-        \ norelativenumber
-
-    " Now we can just write to the buffer, whatever you want.
-    call append('$', "")
-    for line in split(system('fortune -a | cowsay'), '\n')
-        call append('$', '        ' . l:line)
-    endfor
-
-    " No modifications to this buffer
-    setlocal nomodifiable nomodified
-
-    " When we go to insert mode start a new buffer, and start insert
-    nnoremap <buffer><silent> e :enew<CR>
-    nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
-    nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
-endfun
-
-" Run after "doing all the startup stuff"
-" autocmd VimEnter * call Start()
 
 " File Type Specific {{{1
 "Make web files fold on indent {{{2
