@@ -95,8 +95,6 @@ let &t_EI = "\e[1 q"
 
 " Plugin Options {{{1
 
-let g:cssColorVimDoNotMessMyUpdatetime = 1
-
 " Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -380,7 +378,7 @@ nnoremap <C-j> :call WinMove('j')<cr>
 nnoremap <C-k> :call WinMove('k')<cr>
 nnoremap <C-l> :call WinMove('l')<cr>
 
-" Make Ctrl C and Ctrl V work on system buffer
+" Make Ctrl C and Ctrl V work on system clipboard
 " if in visual or insert mode respectively
 vnoremap <C-c> "+y
 inoremap <C-v> <Esc>"+pa

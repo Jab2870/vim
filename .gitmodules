@@ -72,3 +72,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "bundle/vim-lion"]
+	path = bundle/vim-lion
+	url = git@github.com:tommcdo/vim-lion.git
