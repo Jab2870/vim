@@ -348,6 +348,9 @@ nnoremap <Up> ddkP
 nnoremap <Right> xp
 nnoremap <Left> xhP
 
+" Maps the semi colon to colon in normal mode
+nnoremap ; :
+
 " Move lines up/down/left/right using arrow keys
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
