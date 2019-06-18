@@ -75,3 +75,6 @@
 [submodule "bundle/vim-lion"]
 	path = bundle/vim-lion
 	url = git@github.com:tommcdo/vim-lion.git
+[submodule "bundle/vim-ripgrep"]
+	path = bundle/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep
