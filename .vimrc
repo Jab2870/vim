@@ -112,6 +112,10 @@ let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 
 
+" Lion
+let g:lion_squeeze_spaces = 1
+
+
 " Quick tex options {{{2
 " HTML {{{3
 let g:quicktex_html = {
@@ -453,6 +457,7 @@ augroup css
 	"binds this in class
 	autocmd FileType less nnoremap <leader>cl :w! \| !compiler styles.less<CR><CR>
 	autocmd FileType less nnoremap <leader>cL :w! \| !compiler styles.less<CR>
+	autocmd FileType less vmap <leader>a gL:
 augroup END
 
 " Add Html maps, Currently only pandoc conversion {{{2

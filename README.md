@@ -108,3 +108,9 @@ Vim plugin for latex enhancements.
 Adds some nice things for wordpress
 
 <https://github.com/DArcMattr/wordpress.vim>
+
+#### Command T
+
+A fast fuzzy finder
+
+<https://github.com/wincent/command-t>
