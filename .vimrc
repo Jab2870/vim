@@ -396,8 +396,11 @@ inoremap <C-v> <Esc>"+pa
 " map gV to select previously pasted
 nnoremap <expr> gV    "`[".getregtype(v:register)[0]."`]"
 "
+cnoremap w1 w!
+
 " Set :w!! to save with sudo
 cnoremap w!! w !sudo tee %
+cnoremap w11 w !sudo tee %
 
 "Run current line as command
 nnoremap <leader>q !!$SHELL <cr>
