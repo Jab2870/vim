@@ -17,6 +17,11 @@ call pathogen#helptags()
 let mapleader = ","
 let maplocalleader = "\\"
 
+
+let base16colorspace=256  " Access colors present in 256 colorspace
+
+colorscheme base16-gruvbox-dark-hard
+
 " Config {{{1
 " Set auto read so a file is updated if externally changed
 set autoread
@@ -92,6 +97,8 @@ let &t_EI = "\e[1 q"
 " au!
 " autocmd VimEnter * silent !echo -ne "\e[2 q"
 " augroup END
+
+
 
 " Plugin Options {{{1
 
