@@ -105,7 +105,7 @@ let &t_EI = "\e[1 q"
 " Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dark'
+let g:airline_theme='base16'
 
 " Vimtex
 let g:tex_flavor='latex'
