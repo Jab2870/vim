@@ -99,6 +99,12 @@ let &t_EI = "\e[1 q"
 " augroup END
 
 
+" Highlighting {{{1
+
+" Spell {{{2
+
+highlight clear SpellBad
+highlight SpellBad cterm=underline ctermfg=red
 
 " Plugin Options {{{1
 
