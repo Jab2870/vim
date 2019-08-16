@@ -102,9 +102,16 @@ let &t_EI = "\e[1 q"
 " Highlighting {{{1
 
 " Spell {{{2
-
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
+
+
+highlight clear SpellRare
+highlight SpellRare cterm=underline ctermfg=yellow
+
+highlight clear SpellLocal
+highlight SpellLocal cterm=underline ctermfg=yellow
+
 
 " Plugin Options {{{1
 
