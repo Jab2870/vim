@@ -131,6 +131,9 @@ let g:tex_conceal='abdmg'
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 
+" UtiliSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Lion
 let g:lion_squeeze_spaces = 1
@@ -138,171 +141,171 @@ let g:lion_squeeze_spaces = 1
 
 " Quick tex options {{{2
 " HTML {{{3
-let g:quicktex_html = {
-	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\';b'		:  "<b><+++></b> <++>",
-	\';i'		:  "<em><+++></em> <++>",
-	\';1'		:  "<h1><+++></h1> <++>",
-	\';2'		:  "<h2><+++></h2> <++>",
-	\';3'		:  "<h3><+++></h3> <++>",
-	\';p'		:  "<p><+++></p> <++>",
-	\';a'		:  "<a href=\"<++>\"><+++></a> <++>",
-	\';ul'		:  "<ul>\<CR><li><+++></li>\<CR></ul>\<CR>\<CR><++>",
-	\';ol'		:  "<ol>\<CR><li><+++></li>\<CR></ol>\<CR>\<CR><++>",
-	\';li'		:  "<li><++></li>",
-\}
-" CSS {{{3
-let g:quicktex_css = {
-	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\
-	\'w'		:  "width: <+++>;\<CR><++>",
-	\'h'		:  "height: <+++>;\<CR><++>",
-	\'mw'		:  "max-width: <+++>;\<CR><++>",
-	\'mh'		:  "max-height: <+++>;\<CR><++>",
-	\'t'		:  "top: <+++>;\<CR><++>",
-	\'b'		:  "bottom: <+++>;\<CR><++>",
-	\'l'		:  "left: <+++>;\<CR><++>",
-	\'r'		:  "right: <+++>;\<CR><++>",
-	\'pos'		:  "position: <+++>;\<CR><++>",
-	\
-	\'m'		:  "margin: <+++>;\<CR><++>",
-	\'mt'		:  "margin-top: <+++>;\<CR><++>",
-	\'mb'		:  "margin-bottom: <+++>;\<CR><++>",
-	\'ml'		:  "margin-left: <+++>;\<CR><++>",
-	\'mr'		:  "margin-right: <+++>;\<CR><++>",
-	\
-	\'p'		:  "padding: <+++>;\<CR><++>",
-	\'pt'		:  "padding-top: <+++>;\<CR><++>",
-	\'pb'		:  "padding-bottom: <+++>;\<CR><++>",
-	\'pl'		:  "padding-left: <+++>;\<CR><++>",
-	\'pr'		:  "padding-right: <+++>;\<CR><++>",
-	\
-	\'bor'		:  "border: <+++>;\<CR><++>",
-	\'bort'		:  "border-top: <+++>;\<CR><++>",
-	\'borb'		:  "border-bottom: <+++>;\<CR><++>",
-	\'borl'		:  "border-left: <+++>;\<CR><++>",
-	\'borr'		:  "border-right: <+++>;\<CR><++>",
-	\
-	\';abs'		:  "position: absolute;\<CR><++>",
-	\';rel'		:  "position: relative;\<CR><++>",
-	\';fix'		:  "position: fixed;\<CR><++>",
-	\
-	\';block'	:  "display: block;\<CR><++>",
-	\';inl'		:  "display: inline;\<CR><++>",
-	\';inb'		:  "display: inline-block;\<CR><++>",
-	\';flex'	:  "display: flex;\<CR><++>",
-	\';inf'		:  "display: inline-flex;\<CR><++>",
-	\
-	\'include'	:  "@import \"<+++>\";\<CR><++>",
-	\'@include'	:  "@import \"<+++>\";\<CR><++>",
-	\'require'	:  "@import \"<+++>\";\<CR><++>",
-	\'@require'	:  "@import \"<+++>\";\<CR><++>",
-	\'import'	:  "@import \"<+++>\";\<CR><++>",
-	\
-	\'media'	:  "@media (<+++>){\<CR><++>\<CR>}",
-	\';minw'	:  "@media (min-width: <+++>){\<CR><++>\<CR>}",
-	\';mindw'	:  "@media (min-width: @min-desktop-width){\<CR><+++>\<CR>}",
-\}
-let g:quicktex_less = g:quicktex_css
-
-" JS {{{3
-let g:quicktex_javascript = {
-	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\
-	\';fun'		:  "function <+++>(<++>){\<CR><++>\<CR>}",
-	\
-\}
-" Latex Normal {{{3
-let g:quicktex_tex = {
-	\' ' 		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\';b'		: "\\textbf{<+++>} <++>",
-	\';e'		: "\\emph{<+++>} <++>",
-	\'prf'		: "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
-	\';m'		: "$<+++>$ <++>",
-	\';M'		: "\\[ <+++> \\] <++>",
-	\';ma'		: "$a$ ",
-	\';mb'		: "$b$ ",
-	\';mc'		: "$c$ ",
-	\';md'		: "$d$ ",
-	\';me'		: "$e$ ",
-	\';mf'		: "$f$ ",
-	\';mg'		: "$g$ ",
-	\';mh'		: "$h$ ",
-	\';mi'		: "$i$ ",
-	\';mj'		: "$j$ ",
-	\';mk'		: "$k$ ",
-	\';ml'		: "$l$ ",
-	\';mm'		: "$m$ ",
-	\';mn'		: "$n$ ",
-	\';mo'		: "$o$ ",
-	\';mp'		: "$p$ ",
-	\';mq'		: "$q$ ",
-	\';mr'		: "$r$ ",
-	\';ms'		: "$s$ ",
-	\';mt'		: "$t$ ",
-	\';mu'		: "$u$ ",
-	\';mv'		: "$v$ ",
-	\';mw'		: "$w$ ",
-	\';mx'		: "$x$ ",
-	\';my'		: "$y$ ",
-	\';mz'		: "$z$ ",
-	\';mA'		: "$A$ ",
-	\';mB'		: "$B$ ",
-	\';mC'		: "$C$ ",
-	\';mD'		: "$D$ ",
-	\';mE'		: "$E$ ",
-	\';mF'		: "$F$ ",
-	\';mG'		: "$G$ ",
-	\';mH'		: "$H$ ",
-	\';mI'		: "$I$ ",
-	\';mJ'		: "$J$ ",
-	\';mK'		: "$K$ ",
-	\';mL'		: "$L$ ",
-	\';mM'		: "$M$ ",
-	\';mN'		: "$N$ ",
-	\';mO'		: "$O$ ",
-	\';mP'		: "$P$ ",
-	\';mQ'		: "$Q$ ",
-	\';mR'		: "$R$ ",
-	\';mS'		: "$S$ ",
-	\';mT'		: "$T$ ",
-	\';mU'		: "$U$ ",
-	\';mV'		: "$V$ ",
-	\';mW'		: "$W$ ",
-	\';mX'		: "$X$ ",
-	\';mY'		: "$Y$ ",
-	\';mZ'		: "$Z$ ",
-\}
-
-" Latex Maths {{{3
-let g:quicktex_math = {
-	\' '    : "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\';b'  : "\\mathbf{<+++>} <++>",
-	\';B'  : "\\mathbb{<+++>} <++>",
-	\'fr'   : '\mathcal{R} ',
-	\'eq'   : '= ',
-	\'set'  : '\{ <+++> \} <++>',
-	\'frac' : '\frac{<+++>}{<++>} <++>',
-	\'in'   : '\in ',
-	\'bn'   : '\mathbb{N} ',
-\}
-
-" Markdown {{{3
-let g:quicktex_markdown = {
-	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\';b'		: "**<+++>** <++>",
-	\';i'		:  "*<+++>* <++>",
-	\';a'		:  "[<+++>](<+url+>) <++>",
-\}
-let g:quicktex_pandoc = g:quicktex_markdown
-" PHP {{{3
-let g:quicktex_php = {
-	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
-	\';ob'		: "ob_start();\<CR><+++>\<CR>ob_get_clean();",
-	\';vd'		:  "var_dump(<+++>);",
-	\';obvd'		: "ob_start();\<CR>var_dump(<+++>);\<CR>echo htmlspecialchars(ob_get_clean());",
-	\';nl'		: "echo '<br />';",
-\}
+" let g:quicktex_html = {
+" 	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\';b'		:  "<b><+++></b> <++>",
+" 	\';i'		:  "<em><+++></em> <++>",
+" 	\';1'		:  "<h1><+++></h1> <++>",
+" 	\';2'		:  "<h2><+++></h2> <++>",
+" 	\';3'		:  "<h3><+++></h3> <++>",
+" 	\';p'		:  "<p><+++></p> <++>",
+" 	\';a'		:  "<a href=\"<++>\"><+++></a> <++>",
+" 	\';ul'		:  "<ul>\<CR><li><+++></li>\<CR></ul>\<CR>\<CR><++>",
+" 	\';ol'		:  "<ol>\<CR><li><+++></li>\<CR></ol>\<CR>\<CR><++>",
+" 	\';li'		:  "<li><++></li>",
+" \}
+" " CSS {{{3
+" let g:quicktex_css = {
+" 	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\
+" 	\'w'		:  "width: <+++>;\<CR><++>",
+" 	\'h'		:  "height: <+++>;\<CR><++>",
+" 	\'mw'		:  "max-width: <+++>;\<CR><++>",
+" 	\'mh'		:  "max-height: <+++>;\<CR><++>",
+" 	\'t'		:  "top: <+++>;\<CR><++>",
+" 	\'b'		:  "bottom: <+++>;\<CR><++>",
+" 	\'l'		:  "left: <+++>;\<CR><++>",
+" 	\'r'		:  "right: <+++>;\<CR><++>",
+" 	\'pos'		:  "position: <+++>;\<CR><++>",
+" 	\
+" 	\'m'		:  "margin: <+++>;\<CR><++>",
+" 	\'mt'		:  "margin-top: <+++>;\<CR><++>",
+" 	\'mb'		:  "margin-bottom: <+++>;\<CR><++>",
+" 	\'ml'		:  "margin-left: <+++>;\<CR><++>",
+" 	\'mr'		:  "margin-right: <+++>;\<CR><++>",
+" 	\
+" 	\'p'		:  "padding: <+++>;\<CR><++>",
+" 	\'pt'		:  "padding-top: <+++>;\<CR><++>",
+" 	\'pb'		:  "padding-bottom: <+++>;\<CR><++>",
+" 	\'pl'		:  "padding-left: <+++>;\<CR><++>",
+" 	\'pr'		:  "padding-right: <+++>;\<CR><++>",
+" 	\
+" 	\'bor'		:  "border: <+++>;\<CR><++>",
+" 	\'bort'		:  "border-top: <+++>;\<CR><++>",
+" 	\'borb'		:  "border-bottom: <+++>;\<CR><++>",
+" 	\'borl'		:  "border-left: <+++>;\<CR><++>",
+" 	\'borr'		:  "border-right: <+++>;\<CR><++>",
+" 	\
+" 	\';abs'		:  "position: absolute;\<CR><++>",
+" 	\';rel'		:  "position: relative;\<CR><++>",
+" 	\';fix'		:  "position: fixed;\<CR><++>",
+" 	\
+" 	\';block'	:  "display: block;\<CR><++>",
+" 	\';inl'		:  "display: inline;\<CR><++>",
+" 	\';inb'		:  "display: inline-block;\<CR><++>",
+" 	\';flex'	:  "display: flex;\<CR><++>",
+" 	\';inf'		:  "display: inline-flex;\<CR><++>",
+" 	\
+" 	\'include'	:  "@import \"<+++>\";\<CR><++>",
+" 	\'@include'	:  "@import \"<+++>\";\<CR><++>",
+" 	\'require'	:  "@import \"<+++>\";\<CR><++>",
+" 	\'@require'	:  "@import \"<+++>\";\<CR><++>",
+" 	\'import'	:  "@import \"<+++>\";\<CR><++>",
+" 	\
+" 	\'media'	:  "@media (<+++>){\<CR><++>\<CR>}",
+" 	\';minw'	:  "@media (min-width: <+++>){\<CR><++>\<CR>}",
+" 	\';mindw'	:  "@media (min-width: @min-desktop-width){\<CR><+++>\<CR>}",
+" \}
+" let g:quicktex_less = g:quicktex_css
+" 
+" " JS {{{3
+" let g:quicktex_javascript = {
+" 	\' '		:  "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\
+" 	\';fun'		:  "function <+++>(<++>){\<CR><++>\<CR>}",
+" 	\
+" \}
+" " Latex Normal {{{3
+" let g:quicktex_tex = {
+" 	\' ' 		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\';b'		: "\\textbf{<+++>} <++>",
+" 	\';e'		: "\\emph{<+++>} <++>",
+" 	\'prf'		: "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
+" 	\';m'		: "$<+++>$ <++>",
+" 	\';M'		: "\\[ <+++> \\] <++>",
+" 	\';ma'		: "$a$ ",
+" 	\';mb'		: "$b$ ",
+" 	\';mc'		: "$c$ ",
+" 	\';md'		: "$d$ ",
+" 	\';me'		: "$e$ ",
+" 	\';mf'		: "$f$ ",
+" 	\';mg'		: "$g$ ",
+" 	\';mh'		: "$h$ ",
+" 	\';mi'		: "$i$ ",
+" 	\';mj'		: "$j$ ",
+" 	\';mk'		: "$k$ ",
+" 	\';ml'		: "$l$ ",
+" 	\';mm'		: "$m$ ",
+" 	\';mn'		: "$n$ ",
+" 	\';mo'		: "$o$ ",
+" 	\';mp'		: "$p$ ",
+" 	\';mq'		: "$q$ ",
+" 	\';mr'		: "$r$ ",
+" 	\';ms'		: "$s$ ",
+" 	\';mt'		: "$t$ ",
+" 	\';mu'		: "$u$ ",
+" 	\';mv'		: "$v$ ",
+" 	\';mw'		: "$w$ ",
+" 	\';mx'		: "$x$ ",
+" 	\';my'		: "$y$ ",
+" 	\';mz'		: "$z$ ",
+" 	\';mA'		: "$A$ ",
+" 	\';mB'		: "$B$ ",
+" 	\';mC'		: "$C$ ",
+" 	\';mD'		: "$D$ ",
+" 	\';mE'		: "$E$ ",
+" 	\';mF'		: "$F$ ",
+" 	\';mG'		: "$G$ ",
+" 	\';mH'		: "$H$ ",
+" 	\';mI'		: "$I$ ",
+" 	\';mJ'		: "$J$ ",
+" 	\';mK'		: "$K$ ",
+" 	\';mL'		: "$L$ ",
+" 	\';mM'		: "$M$ ",
+" 	\';mN'		: "$N$ ",
+" 	\';mO'		: "$O$ ",
+" 	\';mP'		: "$P$ ",
+" 	\';mQ'		: "$Q$ ",
+" 	\';mR'		: "$R$ ",
+" 	\';mS'		: "$S$ ",
+" 	\';mT'		: "$T$ ",
+" 	\';mU'		: "$U$ ",
+" 	\';mV'		: "$V$ ",
+" 	\';mW'		: "$W$ ",
+" 	\';mX'		: "$X$ ",
+" 	\';mY'		: "$Y$ ",
+" 	\';mZ'		: "$Z$ ",
+" \}
+" 
+" " Latex Maths {{{3
+" let g:quicktex_math = {
+" 	\' '    : "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\';b'  : "\\mathbf{<+++>} <++>",
+" 	\';B'  : "\\mathbb{<+++>} <++>",
+" 	\'fr'   : '\mathcal{R} ',
+" 	\'eq'   : '= ',
+" 	\'set'  : '\{ <+++> \} <++>',
+" 	\'frac' : '\frac{<+++>}{<++>} <++>',
+" 	\'in'   : '\in ',
+" 	\'bn'   : '\mathbb{N} ',
+" \}
+" 
+" " Markdown {{{3
+" let g:quicktex_markdown = {
+" 	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\';b'		: "**<+++>** <++>",
+" 	\';i'		:  "*<+++>* <++>",
+" 	\';a'		:  "[<+++>](<+url+>) <++>",
+" \}
+" let g:quicktex_pandoc = g:quicktex_markdown
+" " PHP {{{3
+" let g:quicktex_php = {
+" 	\' '		: "\<ESC>/<+.*+>\<CR>\"_c/+>/e\<CR>",
+" 	\';ob'		: "ob_start();\<CR><+++>\<CR>ob_get_clean();",
+" 	\';vd'		:  "var_dump(<+++>);",
+" 	\';obvd'		: "ob_start();\<CR>var_dump(<+++>);\<CR>echo htmlspecialchars(ob_get_clean());",
+" 	\';nl'		: "echo '<br />';",
+" \}
 
 
 "}}}

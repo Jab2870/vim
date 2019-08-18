@@ -1,0 +1,40 @@
+snippet iff "Adds a function in an if"
+if( !function_exists( '${1:function_name}' ) ):
+	/**
+	 * $1
+`!p
+parameters = t[2].split(',')
+lines = []
+for param in parameters:
+	param = param.strip();
+	if( param != '' ):
+		lines.append('	 * @param	' + param + '	@todo');
+
+snip.rv = "\n".join(lines);
+`
+	 * @return @todo
+	**/
+	function $1($2){
+		$6
+	}
+	add_${3:action}( '${4:action_name}', '$1', ${5:10}, `!p
+parameters = t[2]
+if ( parameters == '' ):
+	snip.rv = 0
+else:
+	snip.rv = len( parameters.split(',') );
+
+`);
+endif;
+$0
+endsnippet
+
+snippet obvd "Adds a var dump that is html escaped"
+ob_start();
+	var_dump(${1:${VISUAL}});
+echo htmlspecialchars(ob_get_clean());
+endsnippet
+
+snippet vd "Var dump"
+var_dump(${1:${VISUAL}});
+endsnippet
