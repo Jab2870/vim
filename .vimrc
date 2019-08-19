@@ -138,6 +138,16 @@ let g:UltiSnipsEditSplit="vertical"
 " Lion
 let g:lion_squeeze_spaces = 1
 
+" FZF
+" Prefixes all of the fzf commands
+let g:fzf_command_prefix = 'Fzf'
+" Mappings for common Fzf commands
+nnoremap <leader>f = :FzfFiles<cr>
+nnoremap <leader>b = :FzfBuffers<cr>
+nnoremap <leader>h = :FzfHelptags<cr>
+nnoremap <leader>/ = :FzfRg 
+
+
 
 " Quick tex options {{{2
 " HTML {{{3
@@ -439,9 +449,6 @@ inoremap <C-j> <esc>:exe "norm Ypf lDB\<C-a>"<cr>A
 " edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" use command t to search help topics
-nmap <silent> <Leader>h <Plug>(CommandTHelp)
 
 " add new line without entering insert mode
 nnoremap <CR> o<Esc>
