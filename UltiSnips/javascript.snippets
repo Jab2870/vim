@@ -1,0 +1,39 @@
+priority 1000
+snippet class "Adds a class"
+class ${1:class_name}{
+	/**
+	 * this function is run as soon as possible.
+	 * the dom isn't neccessarily loaded / parsed
+	**/
+	constructor(){
+		//Bind this in the following functions to the class
+		this.domloaded = this.domloaded.bind(this);
+
+		//check to see if the dom has loaded yet
+		if(document.readystate == "loading"){
+			//if the dom hasn't loaded, wait until it is
+			document.addeventlistener("readystatechange",this.domloaded);
+			return;
+		} else {
+			//if it has, run the domloaded function
+			this.domloaded();
+		}
+	}
+	
+	
+	/**
+	 * this function is run as soon as the dom is loaded
+	**/
+	domloaded(){
+		//make sure we don't run this twice
+		document.removeEventListener("readystatechange",this.domloaded);
+	}
+
+}
+new $1();
+$0
+endsnippet
+
+snippet bind "creates a bind statement"
+this.${1:functionName} = this.$1.bind(this);
+endsnippet

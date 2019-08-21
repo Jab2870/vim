@@ -387,6 +387,7 @@ nnoremap <Left> xhP
 
 " Maps the semi colon to colon in normal mode
 nnoremap ; :
+nnoremap : ;
 
 " Move lines up/down/left/right using arrow keys
 nnoremap <Down> ddp
@@ -474,7 +475,7 @@ iabbrev @@@ jonathan@lunarweb.co.uk
 "Make web files fold on indent {{{2
 augroup file_web
 	autocmd!
-	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent foldenable
+	autocmd FileType html,xhtml,css,less,javascript,php setlocal foldmethod=indent "foldenable
 augroup END
 
 " js maps {{{2
@@ -528,19 +529,19 @@ augroup END
 " Make vim fold using markers {{{2
 augroup file_i3
 	autocmd!
-	autocmd FileType i3config setlocal foldmethod=marker foldenable
+	autocmd FileType i3config setlocal foldmethod=marker "foldenable
 augroup END
 
 " Make vim fold using markers {{{2
 augroup file_vim
 	autocmd!
-	autocmd FileType vim setlocal foldmethod=marker foldenable
+	autocmd FileType vim setlocal foldmethod=marker "foldenable
 augroup END
 
 " Make json fold using syntax {{{2
 augroup file_json
 	autocmd!
-	autocmd FileType json setlocal foldmethod=syntax foldenable
+	autocmd FileType json setlocal foldmethod=syntax "foldenable
 augroup END
 
 " Make md  files use spellcheck{{{2
