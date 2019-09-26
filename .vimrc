@@ -469,7 +469,8 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 iabbrev @@ jonathan@fellowshipproductions.co.uk
 iabbrev @@@ jonathan@lunarweb.co.uk
 
-
+vnoremap <leader>u :B !urlencode<cr>
+vnoremap <leader>U :B !urldecode<cr>
 
 " File Type Specific {{{1
 "Make web files fold on indent {{{2
