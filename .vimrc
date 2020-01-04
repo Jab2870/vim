@@ -101,6 +101,8 @@ let &t_EI = "\e[1 q"
 
 " Highlighting {{{1
 
+" background {{{2
+highlight Normal guibg=NONE ctermbg=NONE
 " Spell {{{2
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
@@ -146,6 +148,13 @@ nnoremap <leader>f = :FzfFiles<cr>
 nnoremap <leader>b = :FzfBuffers<cr>
 nnoremap <leader>h = :FzfHelptags<cr>
 nnoremap <leader>/ = :FzfRg 
+
+" typescript
+let g:typescript_indent_disable = 1
+
+
+
+
 
 
 
@@ -438,6 +447,7 @@ cnoremap w11 w !sudo tee %
 
 "Run current line as command
 nnoremap <leader>q !!$SHELL <cr>
+vnoremap <leader>q !$SHELL <cr>
 
 " Do Shebang line
 " inoremap <C-y> <Esc>:sil exe ".!which <cWORD>" <bar> s/^/#!/ <bar> filetype detect<cr>YpDi
@@ -461,13 +471,10 @@ inoremap jj <Esc>
 " Fix previous spelling mistake
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
+
 " Set double space in insert mode to go to next mark and enter insert mode
 "inoremap <leader><leader> <Esc>:call NextMark()<cr>
 
-" Abreviations {{{1
-
-iabbrev @@ jonathan@fellowshipproductions.co.uk
-iabbrev @@@ jonathan@lunarweb.co.uk
 
 vnoremap <leader>u :B !urlencode<cr>
 vnoremap <leader>U :B !urldecode<cr>
