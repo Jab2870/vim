@@ -93,10 +93,10 @@ let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 
 " optional reset cursor on start:
-" augroup myCmds
-" au!
-" autocmd VimEnter * silent !echo -ne "\e[2 q"
-" augroup END
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[1 q"
+augroup END
 
 
 " Highlighting {{{1
@@ -398,6 +398,10 @@ nnoremap <Left> xhP
 nnoremap ; :
 nnoremap : ;
 
+" Maps the semi colon to colon in visual mode
+vnoremap ; :
+vnoremap : ;
+
 " Move lines up/down/left/right using arrow keys
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
@@ -472,8 +476,31 @@ inoremap jj <Esc>
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
+function! s:make_email_list(lines)
+	let l:emails = []
+	"return type( a:lines )
+	for email in a:lines
+		let l:address = substitute(split( email, "\t" )[0], " ","","" )
+		let l:name = split( email, "\t" )[1]
+		let l:emails = add( l:emails, l:name . " <" . l:address . ">" )
+	endfor
+	return join(l:emails, ', ')
+endfunction
+
+inoremap <expr> <c-c> fzf#vim#complete({
+			\ 'source': '$HOME/Contacts/lookup',
+			\ 'reducer': function('<sid>make_email_list'),
+			\ 'options': '--multi',
+			\ 'down': '30%' })
+
 " Set double space in insert mode to go to next mark and enter insert mode
 "inoremap <leader><leader> <Esc>:call NextMark()<cr>
+
+" Stops vim doing anything when terminal gains or looses focus
+noremap <silent> <Esc>[I <nop>
+noremap <silent> <Esc>[O <nop>
+noremap! <silent> <Esc>[I <nop>
+noremap! <silent> <Esc>[O <nop>
 
 
 vnoremap <leader>u :B !urlencode<cr>
@@ -493,6 +520,12 @@ augroup javascript
 	autocmd FileType javascript nnoremap <localleader>b Ithis.^y$$a = pa.bind(this);
 augroup END
 "
+" email maps {{{2
+augroup mail
+	autocmd!
+	"binds this in class
+	autocmd FileType mail setlocal spell
+augroup END
 " less maps {{{2
 augroup css
 	autocmd!
