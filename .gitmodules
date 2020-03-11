@@ -93,3 +93,6 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "bundle/vim-markdown-toc"]
+	path = bundle/vim-markdown-toc
+	url = https://github.com/scrooloose/vim-markdown-toc
